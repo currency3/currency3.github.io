@@ -15,7 +15,6 @@
         }
 
         var options =  $.extend(defaults, options);
-        console.log('TEsting: ', options)
         return this.each(function() {
           var obj = $(this);
           var timeNow = new Date();
@@ -30,7 +29,6 @@
 
           if(tZ == "") {
             var deadline = new Date(endYear, endMonth - 1, endDate, endHours, endMinutes, endSeconds);
-            console.log('deadline:', deadline)
           }
           else {
             var deadline = moment.tz([endYear, endMonth - 1, endDate, endHours, endMinutes, endSeconds], tZ).format();
@@ -38,7 +36,6 @@
 
           if(Date.parse(deadline) < Date.parse(timeNow)) {
             var deadline = new Date(Date.parse(new Date()) + endDate * 24 * 60 * 60 * 1000 + endHours * 60 * 60 * 1000);
-            console.log('date too late: ', deadline)
           }
 
 
